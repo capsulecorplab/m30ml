@@ -10,3 +10,11 @@ prefixes:
   schema: http://schema.org/
 default_prefix: m30ml
 default_range: string
+
+slots:
+  id:
+    identifier: true
+    required: true
+    description: an element's unique identifier in a model
+    close_mappings:
+      - schema:identifier
