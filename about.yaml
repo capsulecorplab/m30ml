@@ -1,3 +1,3 @@
 name: m30ml
-description: my awesome datamodel is for awesome things
+description: Mach 30 Modeling Language for filesystem-based MBSE
 source_schema_path: src/linkml/m30ml.yaml

@@ -1,5 +1,3 @@
 # m30ml
 
-my awesome datamodel is for awesome things
-
-
+Mach 30 Modeling Language for filesystem-based MBSE
