@@ -3,8 +3,6 @@ name: m30ml
 title: Mach 30 Modeling Language
 description: |-
   Schema definitions for the Mach 30 Modeling Language (m30ml)
-default_curi_maps:
-  - semweb_context
 imports:
   - linkml:types
   - root
