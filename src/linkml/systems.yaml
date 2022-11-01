@@ -1,0 +1,15 @@
+id: https://w3id.org/Mach30/m30ml/blob/main/src/linkml/systems.yaml
+name: m30ml_systems
+title: Mach 30 Modeling Language - Systems Engineering schema
+description: |-
+  Schema definitions for the Mach 30 Modeling Language (m30ml) Systems Engineering Elements
+imports:
+  - linkml:types
+  - root
+  - core
+  - kernel
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+default_prefix: m30ml
+default_range: string
