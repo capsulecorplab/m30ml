@@ -1,0 +1,21 @@
+name: Build and upload artifacts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run build
+        run: ./build.sh
+
+      # upload artifacts using https://github.com/actions/upload-artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Upload artifacts
+          path: dist/ # or path/to/artifact
