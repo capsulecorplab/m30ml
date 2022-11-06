@@ -11,6 +11,17 @@ prefixes:
 default_prefix: m30ml
 default_range: string
 
+classes:
+  Element:
+    description: :-
+      The basic construct of an m30ml model.  All other classes inherit from Element such that a model is a collection of Elements.
+      Elements may own other Elements via the *body* slot. 
+    slots:
+      - id
+      - shortName
+      - name
+      - body
+
 slots:
   id:
     identifier: true
@@ -38,3 +49,10 @@ slots:
       Conforms to the NPM package.json *description* [format](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#description).
     close_mappings:
       - schema:description
+  body:
+    required: false
+    description: :-
+      The list of sub-Elements owned by an Element.  When the Element is deleted from a model, all owned sub-Elements are also deleted.
+    multivalued: true
+    range: Element
+    inlined_as_list: true
