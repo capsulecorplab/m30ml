@@ -10,5 +10,6 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
-default_prefix: m30ml
+  m30ml_kernel: https://w3id.org/Mach30/m30ml/blob/main/src/linkml/kernel.yaml
+default_prefix: m30ml_kernel
 default_range: string

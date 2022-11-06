@@ -8,8 +8,8 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
-  m30ml:  https://w3id.org/Mach30/m30ml/
-default_prefix: m30ml
+  m30ml_root: https://w3id.org/Mach30/m30ml/blob/main/src/linkml/root.yaml
+default_prefix: m30ml_root
 default_range: string
 
 classes:
