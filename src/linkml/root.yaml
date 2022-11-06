@@ -15,6 +15,10 @@ slots:
   id:
     identifier: true
     required: true
-    description: an element's unique identifier in a model
+    description: :- 
+      An element's [Globally Unique Identifier (GUID)](http://guid.one/guid) in a model.  
+      Tools may choose the GUID version to use (language default is v4).
     close_mappings:
       - schema:identifier
+    # from https://www.geeksforgeeks.org/how-to-validate-guid-globally-unique-identifier-using-regular-expression/
+    pattern: “^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$”  
