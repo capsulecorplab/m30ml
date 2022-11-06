@@ -2,7 +2,7 @@ id: https://w3id.org/Mach30/m30ml
 name: m30ml
 title: Mach 30 Modeling Language
 description: |-
-  Schema definitions for the Mach 30 Modeling Language (m30ml)
+  Schema definitions for the Mach 30 Modeling Language (m30ml), inspired in part by SysML v2 spec
 imports:
   - linkml:types
   - root
