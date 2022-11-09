@@ -3,6 +3,7 @@ name: m30ml_kernel
 title: Mach 30 Modeling Language - Kernel schema
 description: |-
   Schema definitions for the Mach 30 Modeling Language (m30ml) Foundational Elements
+license: https://creativecommons.org/licenses/by/4.0/
 imports:
   - linkml:types
   - root

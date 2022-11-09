@@ -3,6 +3,7 @@ name: m30ml_root
 title: Mach 30 Modeling Language - Root schema
 description: |-
   Schema definitions for the Mach 30 Modeling Language (m30ml) Root Syntactic Elements
+license: https://creativecommons.org/licenses/by/4.0/
 imports:
   - linkml:types
 prefixes:
