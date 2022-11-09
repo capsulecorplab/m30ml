@@ -26,7 +26,7 @@ fi
 clitool="yq"
 cmdargs="'del(.imports)' -i dist/m30ml.yaml"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/workdir mikefarah/yq $cmdargs"
+dockercmd="docker run --rm --user="root" -v $PWD:/workdir mikefarah/yq $cmdargs"
 condition="$clitool --help | grep 'yq is a portable command-line YAML processor' > /dev/null"
 
 if ! eval $condition; then
