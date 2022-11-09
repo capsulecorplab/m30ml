@@ -1,9 +1,36 @@
 # !/usr/bin/env bash
 
-# build script for generating unified schema definition for m30ml
-
 if [ ! -r ./dist ]; then
     mkdir dist
 fi
 
-docker run --rm -v $PWD:/work -w /work linkml/linkml gen-yaml src/linkml/m30ml.yaml --mergeimports > dist/m30ml.yaml
+# build script for generating unified schema definition for m30ml
+# for docker command usage, see https://hub.docker.com/r/linkml/linkml
+
+clitool="gen-yaml"
+cmdargs="src/linkml/m30ml.yaml --mergeimports"
+cmd="$clitool $cmdargs"
+dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml $cmd"
+condition="$clitool --help | grep 'Validate input and produce fully resolved yaml equivalent' > /dev/null"
+dest="dist/m30ml.yaml"
+
+if ! eval $condition; then
+    eval $(echo $dockercmd) > $dest
+else
+    eval $cmd > $dest
+fi
+
+# remove imports to work around issue running gen-yaml
+# for docker command usage, see https://github.com/mikefarah/yq#oneshot-use
+
+clitool="yq"
+cmdargs="'del(.imports)' -i dist/m30ml.yaml"
+cmd="$clitool $cmdargs"
+dockercmd="docker run --rm -v $PWD:/workdir mikefarah/yq $cmdargs"
+condition="$clitool --version | grep "4.20.2" > /dev/null"
+
+if ! eval $condition; then
+    eval $dockercmd
+else
+    eval $cmd
+fi
