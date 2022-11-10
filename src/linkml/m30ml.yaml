@@ -3,6 +3,7 @@ name: m30ml
 title: Mach 30 Modeling Language
 description: |-
   Schema definitions for the Mach 30 Modeling Language (m30ml), inspired in part by SysML v2 spec
+license: https://creativecommons.org/licenses/by/4.0/
 imports:
   - linkml:types
   - root

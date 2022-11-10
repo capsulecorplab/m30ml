@@ -3,6 +3,7 @@ name: m30ml_core
 title: Mach 30 Modeling Language - Core schema
 description: |-
   Schema definitions for the Mach 30 Modeling Language (m30ml) Fundamental Semantic Concepts
+license: https://creativecommons.org/licenses/by/4.0/
 imports:
   - linkml:types
   - root
