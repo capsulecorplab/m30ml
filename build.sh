@@ -34,3 +34,19 @@ if ! eval $condition; then
 else
     eval $cmd
 fi
+
+# run linkml linter on merged m30ml schema
+# for docker command usage, see https://hub.docker.com/r/linkml/linkml
+
+clitool="linkml-lint"
+cmdargs="--format markdown dist/m30ml.yaml"
+cmd="$clitool $cmdargs"
+dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml $cmd"
+condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
+dest="dist/linter-results.md"
+
+if ! eval $condition; then
+    eval $(echo $dockercmd) > $dest
+else
+    eval $cmd > $dest
+fi
