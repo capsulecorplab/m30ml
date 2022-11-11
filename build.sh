@@ -46,8 +46,7 @@ condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
 dest="dist/linter-results.md"
 
 if ! eval $condition; then
-    echo ""
-    #eval $(echo $dockercmd) > $dest
+    eval $(echo $dockercmd) > $dest
 else
     eval $cmd > $dest
 fi
