@@ -37,11 +37,12 @@ fi
 
 # run linkml linter on merged m30ml schema
 # for docker command usage, see https://hub.docker.com/r/linkml/linkml
+# continue execution on error for linkml-lint, as per https://stackoverflow.com/a/11231970
 
 clitool="linkml-lint"
 cmdargs="--format markdown dist/m30ml.yaml"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml $cmd"
+dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml $cmd || true"
 condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
 dest="dist/linter-results.md"
 
