@@ -10,7 +10,7 @@ fi
 clitool="gen-yaml"
 cmdargs="src/linkml/m30ml.yaml --mergeimports"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:v1.3.0rc1 $cmd"
+dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:1.3.14 $cmd"
 condition="$clitool --help | grep 'Validate input and produce fully resolved yaml equivalent' > /dev/null"
 dest="dist/m30ml.yaml"
 
@@ -42,7 +42,7 @@ fi
 clitool="linkml-lint"
 cmdargs="--format markdown dist/m30ml.yaml"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:v1.3.0rc1 $cmd || true"
+dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:1.3.14 $cmd || true"
 condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
 dest="dist/linter-results.md"
 
