@@ -10,7 +10,7 @@ fi
 clitool="gen-yaml"
 cmdargs="src/linkml/m30ml.yaml --mergeimports"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:1.3.14 $cmd"
+dockercmd="podman run --rm -v $PWD:/work -w /work docker.io/linkml/linkml:1.4.0 $cmd"
 condition="$clitool --help | grep 'Validate input and produce fully resolved yaml equivalent' > /dev/null"
 dest="dist/m30ml.yaml"
 
@@ -26,7 +26,7 @@ fi
 clitool="yq"
 cmdargs="'del(.imports)' -i dist/m30ml.yaml"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm --user="root" -v $PWD:/workdir mikefarah/yq $cmdargs"
+dockercmd="podman run --rm --user="root" -v $PWD:/workdir docker.io/mikefarah/yq $cmdargs"
 condition="$clitool --help | grep 'yq is a portable command-line YAML processor' > /dev/null"
 
 if ! eval $condition; then
@@ -42,7 +42,7 @@ fi
 clitool="linkml-lint"
 cmdargs="--format markdown dist/m30ml.yaml"
 cmd="$clitool $cmdargs"
-dockercmd="docker run --rm -v $PWD:/work -w /work linkml/linkml:1.3.14 $cmd || true"
+dockercmd="podman run --rm -v $PWD:/work -w /work docker.io/linkml/linkml:1.4.0 $cmd || true"
 condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
 dest="dist/linter-results.md"
 
