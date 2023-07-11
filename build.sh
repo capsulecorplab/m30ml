@@ -39,15 +39,15 @@ fi
 # for docker command usage, see https://hub.docker.com/r/linkml/linkml
 # continue execution on error for linkml-lint, as per https://stackoverflow.com/a/11231970
 
-clitool="linkml-lint"
-cmdargs="--format markdown dist/m30ml.yaml"
-cmd="$clitool $cmdargs"
-dockercmd="podman run --rm -v $PWD:/work -w /work docker.io/linkml/linkml:1.4.0 $cmd || true"
-condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
-dest="dist/linter-results.md"
-
-if ! eval $condition; then
-    eval $(echo $dockercmd) > $dest
-else
-    eval $cmd > $dest
-fi
+#clitool="linkml-lint"
+#cmdargs="--format markdown dist/m30ml.yaml"
+#cmd="$clitool $cmdargs"
+#dockercmd="podman run --rm -v $PWD:/work -w /work docker.io/linkml/linkml:1.4.0 $cmd || true"
+#condition="$clitool --help | grep 'Show this message and exit.' > /dev/null"
+#dest="dist/linter-results.md"
+#
+#if ! eval $condition; then
+#    eval $(echo $dockercmd) > $dest
+#else
+#    eval $cmd > $dest
+#fi
