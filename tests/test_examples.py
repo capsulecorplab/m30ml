@@ -10,6 +10,7 @@ class M30MLTestCase(unittest.TestCase):
         examples_list.sort()
         for example in examples_list:
             try:
+                print("validating", example)
                 run(["linkml-validate","-s","dist/m30ml.yaml","-C","Element","".join([examples_dir, example])])
             except ValueError as e:
                 errors.append(str(e))
