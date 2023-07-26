@@ -10,8 +10,12 @@ class M30MLTestCase(unittest.TestCase):
         examples_list.sort()
         for example in examples_list:
             try:
-                print("validating", example)
-                run(["linkml-validate","-s","dist/m30ml.yaml","-C","Element","".join([examples_dir, example])])
+                for element_type in ["Element", "Package", "Reference"]:
+                    if element_type in example:
+                        element_type_to_be_validated = element_type
+                        break
+                print("validating", example, "against", element_type_to_be_validated)
+                run(["linkml-validate","-s","dist/m30ml.yaml","-C",element_type_to_be_validated,"".join([examples_dir, example])])
             except ValueError as e:
                 errors.append(str(e))
 
