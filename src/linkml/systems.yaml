@@ -15,3 +15,35 @@ prefixes:
   m30ml_systems: https://w3id.org/Mach30/m30ml/blob/main/src/linkml/systems.yaml
 default_prefix: m30ml_systems
 default_range: string
+
+classes:
+  Package:
+    description: |-
+      Base class, used for defining a directory name and package.json.
+    slots:
+      - name
+      - version
+      - description
+      - license
+      - author
+      - dependencies
+
+slots:
+  # name:
+  #   description: |-
+  #     Package name. Format = single word, only lowercase letters, and may contain hyphens and underscores.
+  version:
+    description: |-
+      Version number of the component's source.  Format = x.x.x per semantic versioning guidelines.
+  license:
+    description: |-
+      List of licenses used within the component's source.  Format = SPDX license expression.
+  author:
+    description: |-
+      Identifies author (e.g. owner of source intellectual property).  Format (email and website are optional)= Author Name <email address> (website URL) 
+  dependencies:
+    description: |-
+      Per NPM/Yarn.  Key = dependency name.  Value = Semantic versioning version string.
+    multivalued: true
+    inlined: true
+    inlined_as_list: false
